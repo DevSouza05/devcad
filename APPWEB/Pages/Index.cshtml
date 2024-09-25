@@ -1,0 +1,93 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home - DEVCAD";
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<div id="feedback" class="alert" style="display:none;"></div>
+
+<script>
+    function showFeedback(message, type) {
+        const feedback = $('#feedback');
+        feedback.removeClass('alert-success alert-danger'); 
+        feedback.addClass(type === 'success' ? 'alert-success' : 'alert-danger');
+        feedback.text(message).fadeIn().delay(3000).fadeOut(); // Exibe a mensagem por 3 segundos
+    }
+
+    $(document).ready(function () {
+        $('.container-fluid').addClass('loaded');
+    });
+</script>
+
+<div class="container-fluid bg-gradient text-white vh-100 d-flex flex-column justify-content-center align-items-center">
+    <h1 class="display-3 mb-4" style="font-family: 'Segoe UI', sans-serif; color: #f5f5f5;">
+        Bem-vindo ao <span style="color: #ffd700;">DEVCAD</span>
+    </h1>
+
+    <p class="lead text-center mb-5" style="font-size: 1.5rem; color: #e0e0e0;">
+        Sistema de Cadastro de Funcionários de forma eficiente e segura
+    </p>
+
+    <div class="d-flex justify-content-center">
+        <a href="/Clientes/Index" class="btn btn-warning btn-lg mx-3 shadow-lg" style="min-width: 200px;">
+            <i class="fas fa-users"></i> Ver Funcionários
+        </a>
+        <a href="/Clientes/Create" class="btn btn-outline-light btn-lg mx-3 shadow-lg" style="min-width: 200px;">
+            <i class="fas fa-user-plus"></i> Novo Funcionário
+        </a>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #004d40, #00796b);
+    }
+
+    .container-fluid {
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0; /* Começa invisível */
+        transition: opacity 0.5s ease-in-out; /* transição */
+    }
+
+        .container-fluid.loaded {
+            opacity: 1; /* Torna visível quando carregado */
+        }
+
+    h1 {
+        font-weight: bold;
+    }
+
+        h1 span {
+            color: #ffd700;
+        }
+
+    p {
+        color: #e0e0e0;
+    }
+
+    .btn {
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-warning {
+        background-color: #ffca28;
+        border-color: #ffca28;
+    }
+
+    .btn-outline-light {
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(255, 193, 7, 0.5);
+    }
+</style>

@@ -1,0 +1,107 @@
+﻿@page
+@model APPWEB.Pages.Clientes.Index1Model
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Novo Funcionário</h2>
+
+    @if (!string.IsNullOrEmpty(Model.errorMessage))
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>@Model.errorMessage</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.successMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@Model.successMessage</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <form method="POST" class="needs-validation" novalidate>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="NomeCompleto" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="NomeCompleto" name="NomeCompleto" value="@Model.Funcionario.NomeCompleto" required>
+                <div class="invalid-feedback">Por favor, insira o nome.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="cargo" class="form-label">Cargo</label>
+                <input type="text" class="form-control" id="cargo" name="cargo" value="@Model.Funcionario.cargo" required>
+                <div class="invalid-feedback">Por favor, insira o cargo.</div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="CPF" class="form-label">CPF</label>
+                <input type="text" class="form-control" id="CPF" name="CPF" value="@Model.Funcionario.CPF" required>
+                <div class="invalid-feedback">Por favor, insira o CPF.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="NomeDoChefeImediato" class="form-label">Nome do Chefe</label>
+                <input type="text" class="form-control" id="NomeDoChefeImediato" name="NomeDoChefeImediato" value="@Model.Funcionario.nomeDoChefeImediato" required>
+                <div class="invalid-feedback">Por favor, insira o nome do chefe imediato.</div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="DataNascimento" class="form-label">Data de Nascimento</label>
+                <input type="date" class="form-control" id="DataNascimento" name="DataNascimento" value="@Model.Funcionario.DataNascimento.ToString("yyyy-MM-dd")" required>
+                <div class="invalid-feedback">Por favor, insira a data de nascimento.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="ChaveNumerica" class="form-label">Chave Numérica</label>
+                <input type="text" class="form-control" id="ChaveNumerica" name="ChaveNumerica" value="@Model.Funcionario.ChaveNumerica" required>
+                <div class="invalid-feedback">Por favor, insira a chave numérica.</div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="Email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="Email" name="Email" value="@Model.Funcionario.Email" required>
+                <div class="invalid-feedback">Por favor, insira um email válido.</div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="dataAdmissao" class="form-label">Data de Admissão</label>
+                <input type="date" class="form-control" id="dataAdmissao" name="dataAdmissao" value="@Model.Funcionario.dataAdmissao.ToString("yyyy-MM-dd")" required>
+                <div class="invalid-feedback">Por favor, insira a data de admissão.</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-lg">Salvar</button>
+    </form>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        border-radius: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+    }
+
+    h2 {
+        font-family: 'Arial', sans-serif;
+    }
+</style>
+
+<!-- Inclua os scripts do jQuery e Inputmask -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+
+<!-- Script para aplicar a máscara ao campo CPF -->
+<script>
+    $(document).ready(function() {
+        $("#CPF").inputmask("999.999.999-99"); // Máscara para CPF
+    });
+</script>

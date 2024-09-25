@@ -1,0 +1,22 @@
+# Build folders
+/bin/
+/obj/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# IDE specific files
+.vs/
+.vscode/
+
+# Logs
+*.log
+
+# Node modules
+node_modules/
+
+# Application settings
+appsettings.json
