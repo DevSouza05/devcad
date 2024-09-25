@@ -1,0 +1,30 @@
+﻿@page
+@model APPWEB.Pages.Clientes.DeleteModel
+@{
+}
+
+<h2>Excluir Funcionário</h2>
+
+@if (!string.IsNullOrEmpty(Model.errorMessage))
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.successMessage))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>@Model.successMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<p>Tem certeza que deseja excluir o funcionário <strong>@Model.NomeCompleto</strong>?</p>
+
+<form method="post">
+    <input type="hidden" name="chaveNumerica" value="@Model.ChaveNumerica" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a href="/Clientes/Index" class="btn btn-secondary">Cancelar</a>
+</form>
