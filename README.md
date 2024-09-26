@@ -7,8 +7,7 @@ bash
 git clone 
 
 2. Navegar até o Diretório do Projeto
-bash
-cd seu-repositorio
+bash usando o comando cd
 
 3. Restaurar Dependências
 Se você estiver usando .NET, você pode usar o seguinte comando para restaurar as dependências do seu projeto:
