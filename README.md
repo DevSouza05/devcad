@@ -4,7 +4,7 @@
 Primeiro, clone o repositório do GitHub. Abra um terminal ou prompt de comando e execute:
 
 bash
-git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/DevSouza05/devcad)
+git clone 
 
 2. Navegar até o Diretório do Projeto
 bash
